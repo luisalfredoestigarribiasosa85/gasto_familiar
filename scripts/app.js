@@ -25,13 +25,18 @@ function enviarAGoogleSheets(descripcion, monto) {
 
     fetch(url, {
         method: 'POST',
-        mode: 'no-cors', // Cambiado a 'cors' para permitir acceso a la respuesta
+        mode: 'cors', // Permitir solicitudes CORS
         body: JSON.stringify({ descripcion: descripcion, monto: monto }),
         headers: {
             'Content-Type': 'application/json'
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
         .then(data => {
             console.log('Datos enviados a Google Sheets', data);
         })
