@@ -21,7 +21,7 @@ document.getElementById('gastoForm').addEventListener('submit', function (event)
 });
 
 function enviarAGoogleSheets(descripcion, monto) {
-    const url = "https://script.google.com/macros/s/AKfycbzW4jNJ6y_7dW52BB7AeiH0WovgqDSoqKXjQZDBij6h-fg1IjZiRkOSv00vTi6eP1gpig/exec"; // Reemplaza con tu URL de Google Apps Script
+    const url = "https://script.google.com/macros/s/AKfycbx1_EyBH_g6q8S4Kcp3XAahascFSKODV-coYwtB4U2SdPsmNRs1eaCPsszWOcQjdk7Tow/exec"; // Reemplaza con tu URL de Google Apps Script
 
     fetch(url, {
         method: 'POST',
