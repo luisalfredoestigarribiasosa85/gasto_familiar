@@ -21,12 +21,11 @@ document.getElementById('gastoForm').addEventListener('submit', function (event)
 });
 
 function enviarAGoogleSheets(descripcion, monto) {
-    // Aquí añadiremos el código para enviar los datos a Google Sheets
     const url = "https://script.google.com/macros/s/AKfycbzW4jNJ6y_7dW52BB7AeiH0WovgqDSoqKXjQZDBij6h-fg1IjZiRkOSv00vTi6eP1gpig/exec"; // Reemplaza con tu URL de Google Apps Script
 
     fetch(url, {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors', // Cambiado a 'cors' para permitir acceso a la respuesta
         body: JSON.stringify({ descripcion: descripcion, monto: monto }),
         headers: {
             'Content-Type': 'application/json'
@@ -40,4 +39,3 @@ function enviarAGoogleSheets(descripcion, monto) {
             console.error('Error al enviar los datos', error);
         });
 }
-
