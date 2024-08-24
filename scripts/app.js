@@ -25,7 +25,7 @@ function enviarAGoogleSheets(descripcion, monto) {
 
     fetch(url, {
         method: 'POST',
-        mode: 'cors', // Cambiado a 'cors' para permitir acceso a la respuesta
+        mode: 'no-cors', // Cambiado a 'cors' para permitir acceso a la respuesta
         body: JSON.stringify({ descripcion: descripcion, monto: monto }),
         headers: {
             'Content-Type': 'application/json'
