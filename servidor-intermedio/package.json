@@ -2,9 +2,9 @@
   "name": "servidor-intermedio",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "servidor-intermedio": "file:"
   }
 }
