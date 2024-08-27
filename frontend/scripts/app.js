@@ -21,7 +21,7 @@ document.getElementById('gastoForm').addEventListener('submit', function (event)
 });
 
 function enviarAGoogleSheets(descripcion, monto) {
-    const url = 'http://localhost:3000/enviar'; // Cambia la URL según sea necesario
+    const url = 'https://gasto-familiar.vercel.app/'; // Cambia la URL según sea necesario
 
     fetch(url, {
         method: 'POST',
@@ -30,11 +30,11 @@ function enviarAGoogleSheets(descripcion, monto) {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Datos enviados a Google Sheets', data);
-    })
-    .catch(error => {
-        console.error('Error al enviar los datos', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            console.log('Datos enviados a Google Sheets', data);
+        })
+        .catch(error => {
+            console.error('Error al enviar los datos', error);
+        });
 }
