@@ -6,9 +6,7 @@ const app = express();
 const port = 3000; // Puedes cambiar el puerto si es necesario
 
 // Configuración de CORS
-app.use(cors({
-    origin: 'https://frontend-jade-five-72.vercel.app'  // Permite solo este dominio
-}));
+app.use(cors());
 app.use(express.json());
 
 // Ruta para verificar que el servidor está funcionando
