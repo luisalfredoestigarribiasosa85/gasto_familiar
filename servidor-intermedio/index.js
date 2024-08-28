@@ -3,7 +3,7 @@ const cors = require('cors');
 const fetch = require('node-fetch'); // Asegúrate de haber instalado node-fetch correctamente
 
 const app = express();
-const port = 3000; // Puedes cambiar el puerto si es necesario
+const port = process.env.PORT || 3000; // Puedes cambiar el puerto si es necesario
 
 // Configuración de CORS
 app.use(cors());
