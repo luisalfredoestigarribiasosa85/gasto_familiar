@@ -25,22 +25,27 @@ function enviarAGoogleSheets(descripcion, monto) {
 
     fetch(url, {
         method: 'POST',
-        body: JSON.stringify({ descripcion: descripcion, monto: monto }),
+        body: JSON.stringify({ descripcion, monto }),
         headers: {
             'Content-Type': 'application/json'
         }
     })
-        .then(response => response.text())  // Cambiado a .text() para depurar
-        .then(data => {
-            console.log('Respuesta del servidor:', data);
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor: ' + response.statusText);
+            }
+            return response.text(); // Cambia a .text() para analizar manualmente
+        })
+        .then(text => {
             try {
-                const jsonData = JSON.parse(data);  // Intenta analizarlo como JSON
-                console.log('Datos JSON:', jsonData);
-            } catch (e) {
-                console.error('Error al analizar JSON:', e);
+                const data = JSON.parse(text); // Intenta analizar como JSON
+                console.log('Datos enviados a Google Sheets', data);
+            } catch (error) {
+                console.error('Error al analizar JSON:', error, text);
             }
         })
         .catch(error => {
             console.error('Error al enviar los datos', error);
         });
+
 }
