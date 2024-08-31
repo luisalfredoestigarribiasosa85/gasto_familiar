@@ -31,21 +31,19 @@ app.post('/enviar', async (req, res) => {
             body: JSON.stringify({ descripcion, monto })
         });
 
-        const text = await response.text(); // Cambiado a .text() temporalmente
+        const text = await response.text();
         console.log('Respuesta del Google Apps Script:', text);
 
-        // Puedes intentar analizar manualmente la respuesta
+        // Intentar analizar la respuesta como JSON
         let data;
         try {
-            data = JSON.parse(text); // Intenta analizarlo como JSON
+            data = JSON.parse(text);
         } catch (error) {
             console.error('Error al analizar la respuesta JSON:', error);
             return res.status(500).json({ status: 'error', message: 'Error al analizar la respuesta JSON' });
         }
 
         res.json(data);
-
-
     } catch (error) {
         console.error('Error en la solicitud:', error);
         res.status(500).json({ status: 'error', message: error.message });

@@ -21,7 +21,7 @@ document.getElementById('gastoForm').addEventListener('submit', function (event)
 });
 
 function enviarAGoogleSheets(descripcion, monto) {
-    const url = 'https://servidor-intermedio.vercel.app/enviar'; // Cambia la URL según sea necesario
+    const url = 'https://servidor-intermedio.vercel.app/enviar'; // Asegúrate de que esta URL sea correcta
 
     fetch(url, {
         method: 'POST',
@@ -30,9 +30,15 @@ function enviarAGoogleSheets(descripcion, monto) {
             'Content-Type': 'application/json'
         }
     })
-        .then(response => response.json())
+        .then(response => response.text())  // Cambiado a .text() para depurar
         .then(data => {
-            console.log('Datos enviados a Google Sheets', data);
+            console.log('Respuesta del servidor:', data);
+            try {
+                const jsonData = JSON.parse(data);  // Intenta analizarlo como JSON
+                console.log('Datos JSON:', jsonData);
+            } catch (e) {
+                console.error('Error al analizar JSON:', e);
+            }
         })
         .catch(error => {
             console.error('Error al enviar los datos', error);
