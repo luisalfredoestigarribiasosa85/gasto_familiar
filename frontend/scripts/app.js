@@ -21,7 +21,7 @@ document.getElementById('gastoForm').addEventListener('submit', function (event)
 });
 
 function enviarAGoogleSheets(descripcion, monto) {
-    const url = 'https://servidor-intermedio.vercel.app/enviar'; // Asegúrate de que esta URL sea correcta
+    const url = 'https://gasto-familiar.vercel.app/enviar'; // Asegúrate de que esta URL sea correcta
 
     fetch(url, {
         method: 'POST',
