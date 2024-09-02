@@ -31,7 +31,7 @@ app.post('/enviar', async (req, res) => {
             body: JSON.stringify({ descripcion, monto })
         });
 
-        const text = await response.text(); // Cambiado a .text() temporalmente
+        const text = await response.json(); // Cambiado a .text() temporalmente
         console.log('Respuesta del Google Apps Script:', text);
 
         let data;
